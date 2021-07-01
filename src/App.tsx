@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import { Provider, useDispatch, useSelector } from 'react-redux'
+import AddMessage from './components/addMessage/AddMessage'
+import { store } from './redux/store'
+import './App.css'
+import MessageList from './components/messageList/MessageList'
+import Message from './components/message/Message'
+import { fetchMessages } from './redux/reducers'
+import { IState } from './common/intefaces'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
+  )
 }
 
-export default App;
+const AppContent = () => {
+  const dispatch = useDispatch()
+  dispatch(fetchMessages())
+
+  return (
+    <div className="App">
+      <AddMessage />
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <MessageList />
+        <Message />
+      </div>
+    </div>
+  )
+}
+
+export default App

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "toto",
+    "pass": "tata",
+    "details": [
+      {
+        "id": 1,
+        "type": "public",
+        "label": "quel con",
+        "message": "vous etes vraiments des enfoirés !"
+      },
+      {
+        "id": 2,
+        "type": "private",
+        "label": "joke",
+        "message": "that was a joke!"
+      }
+    ]
+  },
+  {
+    "id": "toto1",
+    "pass": "tata",
+    "details": [
+      {
+        "id": 1,
+        "type": "public",
+        "label": "bonjour",
+        "message": "merci pour tous !"
+      }
+    ]
+  },
+  {
+    "id": "toto2",
+    "pass": "tata",
+    "details": [
+      {
+        "id": 1,
+        "type": "public",
+        "label": "quel con",
+        "message": "vous etes vraiments des enfoirés !"
+      },
+      {
+        "id": 2,
+        "type": "private",
+        "label": "joke",
+        "message": "that was a joke!"
+      }
+    ]
+  },
+  {
+    "id": "toto3",
+    "pass": "tata",
+    "details": [
+      {
+        "id": 1,
+        "type": "public",
+        "label": "quel con",
+        "message": "vous etes vraiments des enfoirés !"
+      },
+      {
+        "id": 2,
+        "type": "private",
+        "label": "joke",
+        "message": "that was a joke!"
+      }
+    ]
+  },
+  {
+    "id": "toto4",
+    "pass": "tata",
+    "details": [
+      {
+        "id": 1,
+        "type": "public",
+        "label": "quel con",
+        "message": "vous etes vraiments des enfoirés !"
+      },
+      {
+        "id": 2,
+        "type": "private",
+        "label": "joke",
+        "message": "that was a joke!"
+      }
+    ]
+  }
+]
