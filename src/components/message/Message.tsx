@@ -1,15 +1,16 @@
 import React from 'react'
 import './message.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { actions } from '../../redux/reducers'
+import { unselectMessage } from '../../redux/manageMessagesSlice'
 import { IState } from '../../common/intefaces'
 
 function Message() {
   const dispatch = useDispatch()
-  const { subject, userId, message, viewType } = useSelector(
-    (state: IState) => state.selectedMessage
-  )
-  const unClickDelete = () => dispatch(actions.unselectMessage())
+  const { subject, userId, message } = useSelector((state: IState) => state.selectedMessage)
+
+  const unClickDelete = () => dispatch(unselectMessage())
+
+  // userId should be unique and is mandatory
   if (!userId) {
     return null
   }
@@ -20,7 +21,6 @@ function Message() {
       {subject && <p>{subject}</p>}
       {userId && <p>{userId}</p>}
       {message && <p>{message}</p>}
-      {viewType && <p>{viewType}</p>}
     </div>
   )
 }

@@ -1,0 +1,26 @@
+[
+      {
+        "userId": 1,
+        "viewType": "public",
+        "subject": "quel con",
+        "message": "vous etes vraiments des enfoirés !"
+      },
+      {
+        "userId": 2,
+        "viewType": "private",
+        "subject": "joke",
+        "message": "that was a joke!"
+      },
+      {
+        "userId": 3,
+        "viewType": "public",
+        "subject": "bonjour",
+        "message": "merci pour tous !"
+      },
+      {
+        "userId": 4,
+        "viewType": "public",
+        "subject": "quel con",
+        "message": "vous etes vraiments des enfoirés !"
+      }
+]

@@ -1,39 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './messageList.css'
 import { IMessage, IState } from '../../common/intefaces'
 import { EMessageType } from '../../common/enums'
-import { actions } from '../../redux/reducers'
+import { selectMessage as selectMessageAction } from '../../redux/manageMessagesSlice'
 function MessageList() {
   const messages = useSelector((state: IState) => state.messages)
   const dispatch = useDispatch()
+  const [showPrivateMessages, setShowPrivateMessages] = useState(false)
 
   const selectMessage = (userId: string): void => {
+    // find clicked message by userId which should be unique
     const selectedMessage = messages.find(
       (currentMessage: IMessage) => currentMessage.userId === userId
     )
-    dispatch(actions.selectMessage(selectedMessage))
+    dispatch(selectMessageAction(selectedMessage))
+  }
+
+  const setRestriction = () => {
+    // change privacy rule to show or hide private message
+    setShowPrivateMessages(!showPrivateMessages)
+  }
+
+  if (!messages.length) {
+    return null
   }
 
   return (
     <div className="messageList">
-      <div>All messages:</div>
-      {messages?.length &&
-        messages.map(({ subject, message, userId = '', viewType }: IMessage) => {
-          if (viewType === EMessageType.PRIVATE) {
-            return null
-          }
+      <button onClick={setRestriction}>
+        {showPrivateMessages ? 'Hide Private Messages' : 'Show Private Messages'}
+      </button>
+      {messages.map(({ subject, message, userId = '', viewType }: IMessage) => {
+        if (viewType?.toUpperCase() === EMessageType.PRIVATE && !showPrivateMessages) {
+          return null
+        }
 
-          return (
-            <div key={userId} className="messagePart">
-              <button onClick={() => selectMessage(userId)}>Focus the input</button>
-              <p>subject: {subject}</p>
-              <p>message: {message}</p>
-              <p>user: {userId}</p>
-              <p>viewType: {viewType}</p>
-            </div>
-          )
-        })}
+        return (
+          <div key={userId} className="messagePart">
+            <button onClick={() => selectMessage(userId)}>Focus the input</button>
+            <p>subject: {subject}</p>
+            <p>message: {message}</p>
+            <p>user: {userId}</p>
+            <p>viewType: {viewType}</p>
+          </div>
+        )
+      })}
     </div>
   )
 }

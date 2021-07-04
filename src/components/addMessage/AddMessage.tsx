@@ -1,6 +1,6 @@
-import { FC, useState } from 'react'
+import { FC, useState, FormEvent, ChangeEvent, ChangeEventHandler, EventHandler } from 'react'
 import { useDispatch } from 'react-redux'
-import { actions as manageMessagesActions } from '../../redux/reducers'
+import { addMessage } from '../../redux/manageMessagesSlice'
 import { EMessageType } from '../../common/enums'
 import './addMessage.css'
 
@@ -12,14 +12,17 @@ const AddMessage: FC = () => {
   const [userId, setUserId] = useState('')
   const [viewType, setViewType] = useState(EMessageType.PUBLIC)
 
-  const onChangeUserId = (e: any) => setUserId(e.target.value)
-  const onChangeSubject = (e: any) => setSubject(e.target.value)
-  const onChangeMessage = (e: any) => setMessage(e.target.value)
-  const updateViewType = (e: any) => setViewType(e.target.value)
+  const onChangeUserId = (e: ChangeEvent<HTMLInputElement>) => setUserId(e.target.value)
+  const onChangeSubject = (e: ChangeEvent<HTMLInputElement>) => setSubject(e.target.value)
+  const onChangeMessage = (e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)
+  const updateViewType = (e: ChangeEvent<HTMLSelectElement>) => {
+    const element = e.target as HTMLSelectElement
+    setViewType(element.value as EMessageType)
+  }
 
-  const onSubmitMessage = (e: any) => {
+  const onSubmitMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    dispatch(manageMessagesActions.addMessage({ userId, subject, message, viewType }))
+    dispatch(addMessage({ userId, subject, message, viewType }))
     setUserId('')
     setSubject('')
     setMessage('')

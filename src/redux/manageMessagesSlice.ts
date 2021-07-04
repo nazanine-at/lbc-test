@@ -18,26 +18,21 @@ export const fetchMessages = createAsyncThunk('fetchMessages', async () => {
   return res.json()
 })
 
+export const initialState: IState = {
+  messages: [],
+  selectedMessage: {},
+}
+
 const manageMessagesSlice = createSlice({
   name: 'manageMessages',
-  initialState: {
-    messages: [],
-    selectedMessage: {},
-  },
+  initialState,
   reducers: {
-    // @ts-ignore
-    setMessages: (state: IState, { payload }): void => {
-      state.messages = payload.messages
-    },
-    // @ts-ignore
     addMessage: (state: IState, { payload }): void => {
       state.messages = [...state.messages, payload]
     },
-    // @ts-ignore
     selectMessage: (state: IState, { payload }): void => {
       state.selectedMessage = payload
     },
-    // @ts-ignore
     unselectMessage: (state: IState): void => {
       state.selectedMessage = {}
     },
@@ -46,10 +41,11 @@ const manageMessagesSlice = createSlice({
     builder.addCase(fetchMessages.fulfilled, (state, { payload }) => {
       state.messages = payload
     })
-    builder.addCase(fetchMessages.rejected, (state, action) => {
+    builder.addCase(fetchMessages.rejected, (state) => {
       state.messages = []
     })
   },
 })
 
-export const { actions, reducer } = manageMessagesSlice
+export const { unselectMessage, selectMessage, addMessage } = manageMessagesSlice.actions
+export default manageMessagesSlice.reducer

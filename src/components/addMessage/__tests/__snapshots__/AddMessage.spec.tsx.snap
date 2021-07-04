@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddMessage/> 1`] = `
+<div>
+  <div
+    class="addMessage"
+  >
+    <form
+      class="form"
+    >
+      <label>
+        User name
+      </label>
+      <input
+        class="input"
+        placeholder="user name"
+        value=""
+      />
+      <label>
+        subject
+      </label>
+      <input
+        class="input"
+        placeholder="subject"
+        value=""
+      />
+      <label>
+        Message
+      </label>
+      <textarea
+        class="input"
+      />
+      <label
+        for="messageType"
+      >
+        View Type
+        <select
+          class="input"
+          id="viewType"
+        >
+          <option
+            value="PUBLIC"
+          >
+            PUBLIC
+          </option>
+          <option
+            value="PRIVATE"
+          >
+            PRIVATE
+          </option>
+        </select>
+      </label>
+      <button
+        type="submit"
+      >
+        send !
+      </button>
+    </form>
+  </div>
+</div>
+`;

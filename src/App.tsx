@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
-import { Provider, useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { Provider, useDispatch } from 'react-redux'
 import AddMessage from './components/addMessage/AddMessage'
 import { store } from './redux/store'
 import './App.css'
 import MessageList from './components/messageList/MessageList'
 import Message from './components/message/Message'
-import { fetchMessages } from './redux/reducers'
-import { IState } from './common/intefaces'
+import { fetchMessages } from './redux/manageMessagesSlice'
 
 const App = () => {
   return (
@@ -18,6 +17,7 @@ const App = () => {
 
 const AppContent = () => {
   const dispatch = useDispatch()
+  // to retrieve existing messages from the api /message
   dispatch(fetchMessages())
 
   return (

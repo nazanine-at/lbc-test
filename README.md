@@ -1,10 +1,19 @@
-# Getting Started with Create React App
+# Getting Started with Message Manager
+
+A project to read, add and list messages.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, in order to connect to api and get a predefined json file, you can run:
+
+### `npm run server`
+
+Run the server 
+Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
+
 
 ### `npm start`
 
