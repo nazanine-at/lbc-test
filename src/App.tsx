@@ -1,11 +1,12 @@
-import React from 'react'
+import { lazy, Suspense } from 'react'
 import { Provider, useDispatch } from 'react-redux'
-import AddMessage from './components/addMessage/AddMessage'
 import { store } from './redux/store'
-import './App.css'
-import MessageList from './components/messageList/MessageList'
-import Message from './components/message/Message'
 import { fetchMessages } from './redux/manageMessagesSlice'
+import './App.css'
+
+const AddMessageComponent = lazy(() => import('./components/addMessage/AddMessage'))
+const MessageList = lazy(() => import('./components/messageList/MessageList'))
+const Message = lazy(() => import('./components/message/Message'))
 
 const App = () => {
   return (
@@ -22,10 +23,16 @@ const AppContent = () => {
 
   return (
     <div className="App">
-      <AddMessage />
+      <Suspense fallback={<div>Loading...</div>}>
+        <AddMessageComponent />
+      </Suspense>
       <div style={{ display: 'flex', flexDirection: 'row', flex: '1 1 50%' }}>
-        <MessageList />
-        <Message />
+        <Suspense fallback={<div>Loading...</div>}>
+          <MessageList />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Message />
+        </Suspense>
       </div>
     </div>
   )

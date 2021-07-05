@@ -1,8 +1,9 @@
 import React from 'react'
-import './message.css'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { unselectMessage } from '../../redux/manageMessagesSlice'
 import { IState } from '../../common/intefaces'
+import './message.css'
 
 function Message() {
   const dispatch = useDispatch()

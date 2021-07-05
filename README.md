@@ -1,6 +1,6 @@
 # Getting Started with Message Manager
 
-A project to read, add and list messages.
+A project to add, read and list messages.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -11,8 +11,8 @@ In the project directory, in order to connect to api and get a predefined json f
 
 ### `npm run server`
 
-Run the server 
-Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
+Runs the server on [http://localhost:4000](http://localhost:4000)
+to view predefined messages consult http://localhost:4000/messages
 
 
 ### `npm start`
