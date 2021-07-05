@@ -23,7 +23,7 @@ const AppContent = () => {
   return (
     <div className="App">
       <AddMessage />
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', flex: '1 1 50%' }}>
         <MessageList />
         <Message />
       </div>

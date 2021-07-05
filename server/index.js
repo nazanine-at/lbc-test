@@ -1,7 +1,7 @@
 import express from 'express'
 import fs from 'fs'
 
-const PORT = process.env.PORT || 3003
+const PORT = process.env.PORT || 4000
 const app = express()
 
 app.listen(PORT, () => {

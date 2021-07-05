@@ -6,6 +6,7 @@ import { IState } from '../../common/intefaces'
 
 function Message() {
   const dispatch = useDispatch()
+  // get selectedMessage information from redux state
   const { subject, userId, message } = useSelector((state: IState) => state.selectedMessage)
 
   const unClickDelete = () => dispatch(unselectMessage())
@@ -17,10 +18,12 @@ function Message() {
 
   return (
     <div className="message">
-      <button onClick={() => unClickDelete()}>delete</button>
-      {subject && <p>{subject}</p>}
-      {userId && <p>{userId}</p>}
-      {message && <p>{message}</p>}
+      <div className="messageContent">
+        <button onClick={unClickDelete}>Close</button>
+        {subject && <p>{subject}</p>}
+        {userId && <p>{userId}</p>}
+        {message && <p>{message}</p>}
+      </div>
     </div>
   )
 }

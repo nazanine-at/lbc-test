@@ -2,8 +2,8 @@
       {
         "userId": 1,
         "viewType": "public",
-        "subject": "quel con",
-        "message": "vous etes vraiments des enfoirés !"
+        "subject": "Merci",
+        "message": "C'était vraiment top !"
       },
       {
         "userId": 2,
@@ -15,12 +15,12 @@
         "userId": 3,
         "viewType": "public",
         "subject": "bonjour",
-        "message": "merci pour tous !"
+        "message": "Mille Merci !"
       },
       {
         "userId": 4,
         "viewType": "public",
-        "subject": "quel con",
-        "message": "vous etes vraiments des enfoirés !"
+        "subject": "Moyen",
+        "message": "Je ne l'ai pas trop aimé !"
       }
 ]

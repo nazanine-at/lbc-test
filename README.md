@@ -12,7 +12,7 @@ In the project directory, in order to connect to api and get a predefined json f
 ### `npm run server`
 
 Run the server 
-Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
+Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
 
 
 ### `npm start`

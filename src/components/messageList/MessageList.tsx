@@ -14,6 +14,7 @@ function MessageList() {
     const selectedMessage = messages.find(
       (currentMessage: IMessage) => currentMessage.userId === userId
     )
+    // save selectedMessage within redux state
     dispatch(selectMessageAction(selectedMessage))
   }
 
@@ -31,16 +32,15 @@ function MessageList() {
       <button onClick={setRestriction}>
         {showPrivateMessages ? 'Hide Private Messages' : 'Show Private Messages'}
       </button>
-      {messages.map(({ subject, message, userId = '', viewType }: IMessage) => {
+      {messages.map(({ subject, userId = '', viewType }: IMessage) => {
         if (viewType?.toUpperCase() === EMessageType.PRIVATE && !showPrivateMessages) {
           return null
         }
 
         return (
           <div key={userId} className="messagePart">
-            <button onClick={() => selectMessage(userId)}>Focus the input</button>
+            <button onClick={() => selectMessage(userId)}>Open the message</button>
             <p>subject: {subject}</p>
-            <p>message: {message}</p>
             <p>user: {userId}</p>
             <p>viewType: {viewType}</p>
           </div>

@@ -1,4 +1,5 @@
 .messageList {
+    flex: 1 1 50%;
     background: #393838;
     color: darkgrey;
     padding: 10px;
@@ -11,5 +12,4 @@
     color: darkgrey;
     padding: 10px;
     margin: 10px;
-
 }
